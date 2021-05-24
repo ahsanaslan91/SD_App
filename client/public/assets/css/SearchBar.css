@@ -108,4 +108,10 @@
     float: none;
     width: 100%;
   }
+  .cars-row-container {
+    margin-top: 30px;
+  }
+  .wd-minus-220 {
+    margin-left: 0;
+  }
 }

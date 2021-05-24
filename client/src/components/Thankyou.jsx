@@ -25,10 +25,10 @@ const Thankyou = () => {
             <h1 className="text-success">SUCEESS</h1>
           </div>
           <h1 className="w-100 text-center thankyou-heading">
-            Your Request has been recieved by Solid Motor Team
+            We have received your Request
           </h1>
           <h1 className="text-center thankyou-subheading">
-            we will contact you soon on your number
+            Solid Motor will contact you soon on your number
           </h1>
         </div>
         <div className="w-100 d-flex justify-content-center mt-100">

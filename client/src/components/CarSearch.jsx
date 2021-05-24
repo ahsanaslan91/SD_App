@@ -281,25 +281,34 @@ const CarSearch = () => {
         <div style={{ paddingRight: "5%", paddingLeft: "5%" }}>
           <div
             style={{
-              marginTop: "50px",
+              marginTop: "30px",
               padding: "10px",
               background: "#c2efff",
               borderRadius: "8px",
             }}
           >
-            <nav className="navbar navbar-light navbar-expand-md car-filter-container search-bar-container">
+            <nav
+              className="navbar navbar-light navbar-expand-md car-filter-container search-bar-container"
+              style={{ margin: "0px" }}
+            >
               <div className="container-fluid">
+                <h4 style={{ paddingLeft: "2%" }} className="dektop-d-none">
+                  Car Filters
+                </h4>
                 <button
                   data-toggle="collapse"
                   className="navbar-toggler"
-                  data-target="#navcol-1"
+                  data-target="#navcol-2"
                 >
                   <span className="sr-only">Toggle navigation</span>
-                  <span className="navbar-toggler-icon" />
+                  <span
+                    className="dropdown-toggle"
+                    style={{ paddingRight: "5%" }}
+                  />
                 </button>
                 <div
                   className="collapse navbar-collapse"
-                  id="navcol-1"
+                  id="navcol-2"
                   style={{ margin: "0px" }}
                 >
                   <ul className="navbar-nav nav-div-container">
@@ -1015,7 +1024,7 @@ const CarSearch = () => {
         </div>
 
         {/*    END Filter */}
-        <div className="cars-row-container">
+        <div className="cars-row-container mobile-mt50">
           <div id="car-row" className="row mt-0">
             {filterFn.fn(cars).map((item, index) => (
               <CarCard
