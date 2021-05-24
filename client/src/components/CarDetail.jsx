@@ -90,7 +90,7 @@ const CarDetail = (props) => {
       creditScore,
       annualIncome,
     }).then(() => {
-      console.log("Request Send Successfully !");
+      props.history.push("/thankyou");
     });
   };
 
