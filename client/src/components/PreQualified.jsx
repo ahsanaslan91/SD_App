@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router";
 import { isLoggedin, logout } from "../services/userService";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -10,20 +9,12 @@ function useForceUpdate() {
   return () => setValue((value) => value + 1); // update the state to force render
 }
 
-const PreQualified = (props) => {
+const PreQualified = () => {
   const forceUpdate = useForceUpdate();
   const handleLogout = async (e) => {
     await logout();
     forceUpdate();
   };
-
-  function request_redirect() {
-    if (isLoggedin()) {
-      props.history.push("/sellrequest");
-    } else {
-      props.history.push("/login");
-    }
-  }
   return (
     <>
       {isLoggedin() ? <Navbar2 handleLogout={handleLogout} /> : <Navbar />}
@@ -41,13 +32,11 @@ const PreQualified = (props) => {
                   Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
                   maecenas accumsan lacus vel facilisis.
                 </p>
-                <button
-                  onClick={request_redirect}
-                  className="btn btn-primary main-button"
-                  type="button"
-                >
-                  <strong>Sell Or Trade Your Car</strong>
-                </button>
+                <a href="sellrequest">
+                  <button className="btn btn-primary main-button" type="button">
+                    <strong>Sell Or Trade Your Car</strong>
+                  </button>
+                </a>
               </div>
             </div>
             <div className="col-md-6 header-img mobile-mt-50">

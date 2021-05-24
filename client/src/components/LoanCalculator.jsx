@@ -19,11 +19,12 @@ const LoanCalculator = () => {
   const [creditScore, setCreditScore] = React.useState(780);
   const [carCost, setCarCost] = React.useState(10000);
   const [downPayment, setDownpayment] = React.useState(500);
-  const [monthlyPayment, setMonthlyPayment] = React.useState("");
+  const [monthlyPayment, setMonthlyPayment] = React.useState(0);
   const [affordPrice, setAffordPrice] = React.useState(0);
 
-  const [estimatedMonthlyPaymemt, setEstimatedMonthlyPayment] =
-    React.useState(100);
+  const [estimatedMonthlyPaymemt, setEstimatedMonthlyPayment] = React.useState(
+    100
+  );
 
   React.useEffect(() => {
     monthlyPaymentUpdate();
@@ -51,10 +52,10 @@ const LoanCalculator = () => {
         commision = 21;
       }
       if (creditScore == 630) {
-        commision = 23;
+        commision = 32;
       }
       if (creditScore == 588) {
-        commision = 0;
+        commision = 47;
       }
     }
 
@@ -66,10 +67,10 @@ const LoanCalculator = () => {
         commision = 18;
       }
       if (creditScore == 630) {
-        commision = 22;
+        commision = 27;
       }
       if (creditScore == 588) {
-        commision = 25;
+        commision = 38;
       }
     }
 
@@ -81,10 +82,10 @@ const LoanCalculator = () => {
         commision = 14;
       }
       if (creditScore == 630) {
-        commision = 18;
+        commision = 21;
       }
       if (creditScore == 588) {
-        commision = 22;
+        commision = 31;
       }
     }
 
@@ -106,32 +107,25 @@ const LoanCalculator = () => {
 
   function monthlyPaymentUpdate() {
     if (carCost >= 10000 && downPayment >= 500) {
-      if (creditScore == 588 && months == 72) {
-        setMonthlyPayment("N/A");
-      } else {
-        calCommision();
-        pendingPayment = carCost - downPayment;
-        carPrice = pendingPayment / months;
-        carPrice = carPrice * (1 + commision / 100);
-        setMonthlyPayment(Math.ceil(carPrice));
-      }
+      calCommision();
+      pendingPayment = carCost - downPayment;
+      carPrice = pendingPayment / months;
+      carPrice = carPrice * (1 + commision / 100);
+      setMonthlyPayment(Math.ceil(carPrice));
     }
   }
 
   function affordPriceUpdate() {
     if (estimatedMonthlyPaymemt >= 100 && downPayment >= 500) {
-      if (creditScore == 588 && months == 72) {
-        setAffordPrice("N/A");
-      } else {
-        calCommision();
-        var tfp = 0;
-        console.log(commision);
-        tfp = estimatedMonthlyPaymemt * months;
-        console.log(tfp);
-        tfp = tfp * (1 + commision / 100);
-        tfp = tfp + downPayment;
-        setAffordPrice(Math.ceil(tfp));
-      }
+      console.log(estimatedMonthlyPaymemt);
+      calCommision();
+      var tfp = 0;
+      console.log(commision);
+      tfp = estimatedMonthlyPaymemt * months;
+      console.log(tfp);
+      tfp = tfp * (1 + commision / 100);
+      tfp = tfp + downPayment;
+      setAffordPrice(Math.ceil(tfp));
     }
   }
 
@@ -154,10 +148,7 @@ const LoanCalculator = () => {
                   maecenas accumsan lacus vel facilisis.
                 </p>
               </div>
-              <div
-                id="loan-tabs"
-                className="col-md-6 d-flex justify-content-center"
-              >
+              <div className="col-md-6 d-flex justify-content-center">
                 <div className="shadow tabs-container">
                   <ul className="nav nav-tabs" role="tablist">
                     <li
@@ -192,9 +183,7 @@ const LoanCalculator = () => {
                       <div className="form-container">
                         <form method="post">
                           <h2 className="text-center price">
-                            {monthlyPayment == "N/A"
-                              ? "Not Available"
-                              : "$" + monthlyPayment + "/Month"}
+                            ${monthlyPayment}/Month
                           </h2>
                           <div className="form-group mt-30">
                             <label>Cost of car I want</label>
