@@ -5,7 +5,7 @@ const Navbar2 = (props) => {
   return (
     <nav className="navbar navbar-light navbar-expand-md navigation-clean navbar">
       <div className="container">
-        <a className="navbar-brand" href="./">
+        <a className="navbar-brand" href="#">
           <img className="logo" src="assets/img/Logo.png" />
         </a>
         <button
